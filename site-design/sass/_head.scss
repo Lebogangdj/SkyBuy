@@ -1,0 +1,85 @@
+.header {
+    background-color: rgb(0,0,0);
+    border: {
+        bottom: 1px solid rgba(240,240,240,0.5);
+    }
+    min-height: 50px;
+    box-sizing: border-box;
+
+    @include box-shadow(rgba(0,0,0,0.3) 0 0 3px 1px);
+
+    >div {
+        vertical-align: middle;
+    }
+
+    &:hover {
+        .login {
+            opacity: 1;
+        }
+
+        #pageTitle{
+            @include rotateY(20deg, 100px);
+            text-shadow: 0px 0px 3px rgb(0,192,255);
+        }
+    }
+
+    a {
+        padding: 0px;
+        margin: 0px;
+        color: white;
+
+        text-decoration: none;
+    }
+
+
+}
+
+#pageTitle {
+    @include transition(all 0.3s ease-in-out);
+    @include rotateY(-20deg, 100px);
+    color: rgb(240,240,240);
+    font-size: 26px;
+    font-style: italic;
+    padding-top: 3px;
+    margin: 0px;
+    overflow: visible;
+    float: left;
+    cursor: pointer;
+
+    >a {
+        color: white;   
+    }
+}
+
+.login {
+    float: right;
+    margin-top: 10px;
+}
+
+.subHeader, .errorHeader {
+    min-height: 50px;
+    border: none;
+
+    @include background(rgba(255,255,255,0.3));
+    //text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+
+
+    span {
+        margin-top: 15px;
+        float: left;
+        font-weight: bold;
+        //text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        color: black;
+    }
+}
+
+.errorHeader {
+    @include background-image(linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.2)));
+    background-color: rgb(100,0,150);
+
+    span {
+        width: 100%;
+        float: next;
+        text-align: center;
+    }
+}

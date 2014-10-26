@@ -1,0 +1,88 @@
+.ETablePanel{
+	margin-top: 10px;
+	background-color: white;
+	border-radius: 5px;
+	padding: 5px;
+	
+	.ETable{
+		width: 100%;
+		
+		thead{
+			th:hover{
+				//@include background-image(linear-gradient(rgb(0,192,255),rgb(0,142,200)));
+				cursor: pointer;
+				color: rgb(0,192,255);
+			}
+			
+			%sort {
+				background-position: right center !important;
+				background-repeat: no-repeat !important;
+			}
+
+			.asc{
+				@extend %sort;
+				@include background(image-url("../site-images/table/sort_asc.png"),linear-gradient(rgb(40,40,40),rgb(0,0,0)));
+			}
+				
+			.desc{
+				@extend %sort;
+				@include background(image-url("../site-images/table/sort_desc.png"),linear-gradient(rgb(40,40,40),rgb(0,0,0)));
+			}
+		}
+		
+		td button{
+			@extend .ESmallButton;
+		}
+	}
+	
+	.hidden{
+		display: none;
+	}
+	
+	.controls{
+		padding: 5px;
+		
+		.EField{
+			@include transition(width 1s);
+			width: 50px;
+			&:focus{
+				width: 200px;
+			}	
+		}
+		span{
+			font-size: 14px;
+		}
+	}
+}
+
+.ETable{
+	border-collapse: collapse;
+	border: solid 1px black;
+	background-color: black;
+	
+	thead{
+		th{
+			@include background(linear-gradient(rgb(40,40,40),rgb(0,0,0)));
+			padding: 5px;
+			color: white;
+			text-align: left;
+			font-size: 13px;
+		}
+		
+	}
+	tr:nth-child(even){
+		/* @include background(image-url("site-design/site-images/table/sort_asc.png")); */
+		background-color: rgb(240,240,240);
+	}
+	tr:nth-child(odd){
+		background-color: white;
+	}
+	td{
+		padding: 3px;
+		font-size: 13px;
+		
+		i{
+			color: #999999;
+		}
+	}
+}

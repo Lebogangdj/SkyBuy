@@ -1,0 +1,29 @@
+@import "compass/css3/box-shadow";
+@import "compass/layout/sticky-footer";
+
+$footerSize : 40px;
+$textPadding : ($footerSize / 4) + 1;
+
+@include sticky-footer($footerSize, "#layout", "#layout_footer", "#footer");
+
+#footer {
+    background-color: rgb(0,0,0);
+    border: {
+        top: 1px solid rgba(240,240,240,0.2);
+    }
+    box-sizing: border-box;
+    @include box-shadow(rgba(0,0,0,0.3) 0 0 3px 1px);
+}
+
+#footerSpacing {
+    padding-top: $textPadding;
+    padding-bottom: $textPadding;
+    
+    margin: 0;
+    
+    color: rgb(240,240,240);
+    font-size: 12px;
+    
+    text-align: center;
+}
+

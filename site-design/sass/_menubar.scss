@@ -1,0 +1,109 @@
+@import "compass/css3/transition";
+
+.menuBar {
+    float: left;
+    padding-left: 30px;
+    padding-top: 5px;
+
+    >div {
+        float: left;
+        margin-left: 5px;
+        cursor: pointer;
+        padding: 10px;
+        font-weight: bold;
+
+        a{
+            padding:0px;
+            margin:0px;
+        }
+
+        @include transition(all 0.1s linear);
+
+        &:hover {
+            ul{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+
+        >ul {
+            text-align: left;
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            list-style: none;
+
+            margin-top: 4px;
+            margin-left: -10px;
+
+            padding: 10px 0px;
+
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px; 
+            border-top-right-radius: 5px; 
+
+            @include transition(all 0.1s linear);
+
+            >li {
+                padding: 5px 10px;
+                min-width: 150px;
+
+                @include transition(all 0.1s linear);
+
+                &:hover {
+                    @include background-image(linear-gradient(lighten(rgb(0,192,255),10%) lighten(rgb(0,142,200), 10%)));
+                    a{
+                        display: block;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dropdown{
+
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    padding-bottom: 16px !important;
+
+    >ul{
+        margin-top:16px !important;
+    }
+}
+
+
+.blueBar {
+    color: black !important;
+
+    >div {        
+
+
+        ul {            
+            background-color: rgba(0,0,0,0.8);
+
+            a {
+                color: white !important;
+            }
+        }  
+
+        &:hover {
+            background-color: rgba(0,0,0,0.8);
+            border-radius: 5px;
+            color: white !important;
+            
+             a {
+                color: white !important;
+            }
+        }
+    }
+}
+
+.whiteBar {
+    a {
+        color: white !important;
+    }
+
+}

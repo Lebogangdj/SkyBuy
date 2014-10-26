@@ -1,0 +1,125 @@
+@import "compass";
+@import "_head.scss";
+@import "_footer.scss";
+@import "_menubar.scss";
+@import "_table-system.scss";
+@import "_itemlist.scss";
+@import "_elements.scss";
+
+@font-face{ 
+    font-family: 'Chalk';
+    src: url('eraserregular-webfont.eot');
+    src: url('eraserregular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('eraserregular-webfont.woff') format('woff'),
+        url('eraserregular-webfont.ttf') format('truetype'),
+        url('eraserregular-webfont.svg#webfont') format('svg');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Open Sans";
+    font-size: 14px;
+    background-color: rgb(240,240,240);
+}
+
+#layout {
+}
+
+.center_on_screen {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    min-width: 1000px;
+
+    overflow: visible;
+}
+
+#layout_footer {
+}
+
+h2 {
+    @include background-image(linear-gradient(rgb(240,240,240),rgb(200,200,200)));
+    @include box-shadow(rgba(0,0,0,0.5) 0px 0px 3px 0px inset);
+    padding: 8px;
+    margin: 0px;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+td {
+    padding: 5px;
+
+    >input {
+        margin: 0px;
+        width: 96%;
+        max-width: 300px;
+    }
+
+    >input[type=radio] {
+        margin: 0;
+        width: auto;
+    }
+
+    >label {
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+.encapsulate_content {
+    @include border-radius(5px);
+    @include box-shadow(rgba(255,255,255,0.5) 0 0 2px 1px);
+
+    border: 1px solid rgba(150,150,150,0.1);
+
+    background-color: rgba(255,255,255,0.8);
+
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    overflow: auto;
+}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+a:link, a:active, a:hover, a:visited {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.clouds {
+    background-image: url(../images/homeClouds.jpg);
+    background-size: cover;
+}
+
+.indexPage {
+    height: 100%;
+
+    h1 {
+        text-shadow: 0 0 15px rgba(0,0,0,0.2);
+        font-size: 54px;
+        color: white;
+        margin-top: 100px;
+        font-family: Chalk;
+    }
+
+    h3 {
+        text-shadow: 0 0 15px rgba(0,0,0,0.2);
+        font-size: 24px;
+        color: white;
+        margin-top: 20px;
+        font-family: "Chalk";
+    }
+}

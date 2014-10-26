@@ -1,0 +1,168 @@
+
+//!--------------- BASE CLASSES ----------------
+
+.hover{
+    border:solid 1px transparent;
+}
+
+.hover:hover {
+    @include background-image(linear-gradient(rgb(40,40,40),rgb(0,0,0)));
+    border: 1px solid rgb(102,0,255);
+    color: white;
+    box-shadow: 0 0 3px 1px rgba(0,192,255,1.0);
+}
+
+%ButtonBaseClass {
+    display:inline-block;
+    border: 1px solid #757575;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    font-family: Helvetica,sans-serif;
+    margin: 2px;
+    color: #000;
+    box-sizing: border-box;
+    cursor: pointer;
+    @include background-image(linear-gradient(rgb(255,255,255),rgb(200,200,200)));
+
+    &:not([disabled]):hover{
+        @extend .hover;
+    }
+    &:not([disabled]):active{
+        @include transform3d(scale(0.94));
+    }
+    &[disabled] {
+        opacity: 0.5;
+    }
+}
+
+//!-------------------- STANDLONE CONTROLS ---------------
+
+
+.EButton {
+    @extend %ButtonBaseClass;
+    padding: 6px 14px;
+    font-size: 12px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.7),0 1px 0 rgba(255,255,255,0.3);
+}
+
+.ESmallButton{
+    @extend %ButtonBaseClass;
+    padding: 3px 7px !important;
+    font-size: 11px !important;
+}
+
+.ELabel{
+    @extend %LabelBaseClass !optional;
+}
+
+
+//!--------------------- TABLES -----------------------
+
+
+.ETable{
+    clear: both;
+    border-collapse: collapse;
+    border: solid 1px black;
+    background-color: black;
+    width: 100%;
+    thead{
+        th{
+            @include background(linear-gradient(rgb(40,40,40),rgb(0,0,0)));
+            padding: 5px;
+            color: white;
+            text-align: left;
+            font-size: 13px;
+        }
+
+    }
+    tr{
+        vertical-align: middle !important;
+
+    }
+    tr:nth-child(even){
+        /* @include background(image-url("site-design/site-images/table/sort_asc.png")); */
+        background-color: rgb(240,240,240);
+    }
+    tr:nth-child(odd){
+        background-color: white;
+    }
+    td{
+        padding: 3px;
+        font-size: 13px;
+
+        i{
+            color: #999999;
+        }
+
+        input[type=checked]{
+            
+        }
+    }
+}
+
+//table system
+.ETablePanel{
+    margin-top: 10px;
+    padding: 5px;
+
+    .ETable{
+        width: 100%;
+
+        thead{
+            th:hover{
+                //@include background-image(linear-gradient(rgb(0,192,255),rgb(0,142,200)));
+                cursor: pointer;
+                color: rgb(0,192,255);
+            }
+
+            %sort {
+                background-position: right center !important;
+                background-repeat: no-repeat !important;
+            }
+
+            .asc{
+                @extend %sort;
+                @include background(image-url("../../table-system/media/sort_asc.png"),linear-gradient(rgb(40,40,40),rgb(0,0,0)));
+            }
+
+            .desc{
+                @extend %sort;
+                @include background(image-url("../../table-system/media/sort_desc.png"),linear-gradient(rgb(40,40,40),rgb(0,0,0)));
+            }
+        }
+
+        td button{
+            @extend .ESmallButton;
+        }
+    }
+
+    .hidden{
+        display: none;
+    }
+
+    .controls{
+        padding: 5px;
+        overflow: auto;
+        >*{
+            float: left;	
+        }
+        .MField{
+            @include transition(width 1s);
+            width: 50px;
+            margin-bottom: 5px;
+            margin-top: 2px;
+            font-size: 10px !important;
+            &:focus{
+                width: 200px;
+            }	
+        }
+        select{
+            margin-top: 4px;
+        }
+        span{
+            font-size: 14px;
+            margin-left: 5px;
+            margin-top: 4px;
+        }
+    }
+}

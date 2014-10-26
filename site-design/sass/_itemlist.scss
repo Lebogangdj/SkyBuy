@@ -1,0 +1,264 @@
+.wrap {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    min-width: 300px;
+}
+
+.item, .viewItem, .cartItem {
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 10px;
+    background-color: rgba(0,0,0,0.05); 
+    @include box-shadow(rgba(0,0,0,0.3) 0 0 2px 0px inset);
+    @include transition(all 0.1s linear);
+    @include display-box;
+    @include box-orient(horizontal);
+
+    .image, .viewImage, .cartImage {
+        @include box-flex(0);
+
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-radius: 5px;
+    }
+
+    .data, .viewData, .cartData {
+        @include box-flex(1);
+        padding: 10px;
+
+        >*{
+            padding: 0;
+            margin: 0;
+
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        >h4 {
+            font-weight: normal;
+        }
+
+        >p {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            margin: 0px;
+        }
+    }
+}
+
+.viewItem {
+
+    background: none;
+    border: none;
+    padding: 0;
+    @include box-shadow(none);
+
+    .viewImage {
+        width: 300px;
+        height: 300px;
+    }
+
+    .viewData {
+        @include box-shadow(rgba(0,0,0,0.2) 0 0 2px 0 inset);
+        @include display-box;
+        @include box-orient(vertical);
+        margin-left: 10px;
+        background-color: rgba(0,0,0,0.05);
+        border-radius: 5px;
+        border: 1px solid rgba(0,0,0,0.1);
+        padding: 0;
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .dataTop {
+            @include box-flex(5);
+
+            >h4 {
+                font-size: 16px;
+                font-weight: normal;
+                padding: 20px;
+            }
+        }
+
+        .dataBottom {
+            @include box-flex(0);
+            border-top: 1px solid rgba(0,0,0,0.1);
+
+            >p {
+                font-weight: bold;
+                margin-left: 10px;
+                float: left;
+                font-size: 24px;
+                padding: 10px;
+            }
+
+            >a {
+                float: right;
+                margin-right: 10px;
+                margin-top: 7px;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.cartItem {
+
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 20px;
+    @include box-shadow(none);
+
+    .cartImage {
+        width: 200px;
+        height: 200px;
+    }
+
+    .cartData {
+        @include box-shadow(rgba(0,0,0,0.2) 0 0 2px 0 inset);
+        @include display-box;
+        @include box-orient(vertical);
+        margin-left: 10px;
+        background-color: rgba(0,0,0,0.05);
+        border-radius: 5px;
+        border: 1px solid rgba(0,0,0,0.1);
+        padding: 0;
+    }
+
+    *{
+        padding: 0;
+        margin: 0;
+    }
+
+    .cartTop {
+        @include box-flex(5);
+
+        >h3 {
+            font-weight: bold;
+            font-size: 24px;
+            padding: 10px;
+        }
+
+        >h4 {
+            font-size: 16px;
+            font-weight: normal;
+            padding: 10px;
+        }
+    }
+
+    .cartBottom {
+        @include box-flex(0);
+        border-top: 1px solid rgba(0,0,0,0.1);
+
+        >p {
+            font-weight: bold;
+            margin-left: 10px;
+            float: left;
+            font-size: 24px;
+            padding: 10px;
+        }
+
+        >a {
+            float: right;
+            margin-right: 10px;
+            margin-top: 7px;
+            padding: 10px;
+            background-color: rgba(192,255,0,0.8);
+        }
+    }
+}
+
+a.button {
+    padding: 10px !important;
+}
+
+.checkOutBox {
+    @include box-shadow(rgba(0,0,0,0.3) 0 0 2px 0px inset);
+    @include transition(all 0.1s linear);
+    @include display-box;
+    @include box-orient(vertical);
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.05); 
+
+    .topWrap {
+        @include display-box;
+        @include box-orient(horizontal);
+        @include box-flex(4);
+        padding: 10px;
+
+        .checkOutName {
+            @include box-flex(5);
+            width: 200px;
+        }
+
+        .checkOutDescrip {
+            @include box-flex(5);
+            width: 200px;
+        }
+
+        .checkOutItemCount {
+            @include box-flex(0);
+            width: 100px;
+        }
+
+        .checkOutSubtotal {
+            @include box-flex(0);
+            width: 100px;
+        }
+        
+        .title {
+            @include box-shadow(rgba(0,0,0,0.3) 0 0 2px 1px inset);
+            background-color: rgba(0,192,255,0.5) !important;
+            border-radius: 5px;
+            border: 1px solid rgba(0,0,0,0.3);
+            background-color: rgba(0,0,0,0.05);
+            font-weight: bold;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px;
+            font-size: 10px;
+        }
+    }
+
+    .bottomWrap {
+        @include box-flex(0);
+        @include display-box;
+        @include box-orient(horizontal);
+        @include box-flex(4);
+        padding: 10px;
+
+        .checkOutName {
+            @include box-flex(5);
+            width: 200px;
+        }
+
+        .checkOutDescrip {
+            @include box-flex(5);
+            width: 200px;
+        }
+
+        .checkOutItemCount {
+            @include box-flex(0);
+            width: 100px;
+        }
+
+        .checkOutSubtotal {
+            @include box-flex(0);
+            width: 100px;
+        }
+    }
+}
